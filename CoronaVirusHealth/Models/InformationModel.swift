@@ -22,6 +22,7 @@ struct InformationModel{
     var value: String
     var list: [String]? = nil
     var fieldType: FieldViewCollectionCell.FieldType
+    var symptome: DiagnosticSymptomes.Symptomes? = nil
     
     var options: [OptionModel]?
     

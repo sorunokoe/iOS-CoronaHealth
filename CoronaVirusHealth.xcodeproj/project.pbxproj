@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		122D7CC26992F5D0AA51A575 /* Pods_CoronaVirusHealthTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8AA45BA7E71A90B9092D9C /* Pods_CoronaVirusHealthTests.framework */; };
 		17BBA9C55C38BE732701E2DF /* Pods_CoronaVirusHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C4A988D62DFA62616D3549 /* Pods_CoronaVirusHealth.framework */; };
+		1F28F8AA242E34A80058701D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F28F8A9242E34A80058701D /* NotificationService.swift */; };
 		1F5060082424D74500C5FAE1 /* PreventionInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5060072424D74500C5FAE1 /* PreventionInfoModel.swift */; };
 		1F50600A2424DD0C00C5FAE1 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5060092424DD0C00C5FAE1 /* UIAlertController+Extension.swift */; };
 		1F50600C2424E7C700C5FAE1 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F50600B2424E7C700C5FAE1 /* PresentationController.swift */; };
@@ -23,7 +24,6 @@
 		1F5060252425FBEC00C5FAE1 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5060242425FBEC00C5FAE1 /* OptionView.swift */; };
 		1F5060272426116C00C5FAE1 /* DiagnosticDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5060262426116C00C5FAE1 /* DiagnosticDetailRouter.swift */; };
 		1F5A46892420C2B9003FB3C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A46882420C2B9003FB3C3 /* AppDelegate.swift */; };
-		1F5A468B2420C2B9003FB3C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A468A2420C2B9003FB3C3 /* SceneDelegate.swift */; };
 		1F5A46922420C2BB003FB3C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5A46912420C2BB003FB3C3 /* Assets.xcassets */; };
 		1F5A46952420C2BB003FB3C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5A46932420C2BB003FB3C3 /* LaunchScreen.storyboard */; };
 		1F5A46A02420C2BB003FB3C3 /* CoronaVirusHealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A469F2420C2BB003FB3C3 /* CoronaVirusHealthTests.swift */; };
@@ -80,6 +80,8 @@
 		1F5A474024238515003FB3C3 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5A473F24238515003FB3C3 /* ResultView.swift */; };
 		1FBA7DD2242D1AAC0026EC5E /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBA7DD1242D1AAC0026EC5E /* NavigationViewController.swift */; };
 		1FBA7DD6242D22DA0026EC5E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FBA7DD8242D22DA0026EC5E /* Localizable.strings */; };
+		1FEC8A392431EB68005D04F0 /* DiagnosticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8A382431EB68005D04F0 /* DiagnosticService.swift */; };
+		1FEC8A3B2431F6CF005D04F0 /* Symptomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC8A3A2431F6CF005D04F0 /* Symptomes.swift */; };
 		1FF598F7242A740800A61B10 /* ResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF598F6242A740800A61B10 /* ResultDetailViewController.swift */; };
 		1FF598FA242A74EE00A61B10 /* ResultDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF598F9242A74EE00A61B10 /* ResultDetailView.swift */; };
 		1FF598FC242A7B2000A61B10 /* ResultDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF598FB242A7B2000A61B10 /* ResultDetailProtocols.swift */; };
@@ -101,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F28F8A9242E34A80058701D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		1F5060072424D74500C5FAE1 /* PreventionInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventionInfoModel.swift; sourceTree = "<group>"; };
 		1F5060092424DD0C00C5FAE1 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		1F50600B2424E7C700C5FAE1 /* PresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 		1F5060262426116C00C5FAE1 /* DiagnosticDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticDetailRouter.swift; sourceTree = "<group>"; };
 		1F5A46852420C2B9003FB3C3 /* CoronaVirusHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaVirusHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5A46882420C2B9003FB3C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F5A468A2420C2B9003FB3C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1F5A46912420C2BB003FB3C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5A46942420C2BB003FB3C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F5A46962420C2BB003FB3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,8 @@
 		1FBA7DD5242D22C20026EC5E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1FBA7DD7242D22DA0026EC5E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1FBA7DD9242D22DD0026EC5E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1FEC8A382431EB68005D04F0 /* DiagnosticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticService.swift; sourceTree = "<group>"; };
+		1FEC8A3A2431F6CF005D04F0 /* Symptomes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptomes.swift; sourceTree = "<group>"; };
 		1FF598F6242A740800A61B10 /* ResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailViewController.swift; sourceTree = "<group>"; };
 		1FF598F9242A74EE00A61B10 /* ResultDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailView.swift; sourceTree = "<group>"; };
 		1FF598FB242A7B2000A61B10 /* ResultDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailProtocols.swift; sourceTree = "<group>"; };
@@ -214,6 +218,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F28F8A8242E349A0058701D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				1F28F8A9242E34A80058701D /* NotificationService.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		1F5060062424D73B00C5FAE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				1F5A46882420C2B9003FB3C3 /* AppDelegate.swift */,
-				1F5A468A2420C2B9003FB3C3 /* SceneDelegate.swift */,
 				1F5A46BF2420D688003FB3C3 /* App */,
 				1F5060062424D73B00C5FAE1 /* Models */,
 				1F5A46C92420D80A003FB3C3 /* Extensions */,
@@ -373,6 +384,8 @@
 		1F5A46B52420D45E003FB3C3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1FEC8A372431EB5A005D04F0 /* Diagnoatic */,
+				1F28F8A8242E349A0058701D /* Notification */,
 				1FF59902242A828F00A61B10 /* Database */,
 				1F5A46BA2420D482003FB3C3 /* Location */,
 			);
@@ -661,6 +674,15 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		1FEC8A372431EB5A005D04F0 /* Diagnoatic */ = {
+			isa = PBXGroup;
+			children = (
+				1FEC8A382431EB68005D04F0 /* DiagnosticService.swift */,
+				1FEC8A3A2431F6CF005D04F0 /* Symptomes.swift */,
+			);
+			path = Diagnoatic;
+			sourceTree = "<group>";
+		};
 		1FF598F5242A727B00A61B10 /* ResultDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -926,11 +948,11 @@
 				1F5A473924237F1B003FB3C3 /* WorldView.swift in Sources */,
 				1F5A470024222FD4003FB3C3 /* TabViewController.swift in Sources */,
 				1F5A46BE2420D560003FB3C3 /* EntranceRouter.swift in Sources */,
+				1FEC8A392431EB68005D04F0 /* DiagnosticService.swift in Sources */,
 				1F5060192425F62E00C5FAE1 /* DiagnosticDetailView.swift in Sources */,
 				1F5A471424234D0C003FB3C3 /* MainView.swift in Sources */,
 				1F5A473B2423808C003FB3C3 /* DiagnosticResultModel.swift in Sources */,
 				1F5A473124237B4B003FB3C3 /* DiagnosticActionCellCollection.swift in Sources */,
-				1F5A468B2420C2B9003FB3C3 /* SceneDelegate.swift in Sources */,
 				1F5A47082422319C003FB3C3 /* WorldRouter.swift in Sources */,
 				1F5060102424EAF600C5FAE1 /* TransitionDelegate.swift in Sources */,
 				1F5060252425FBEC00C5FAE1 /* OptionView.swift in Sources */,
@@ -941,6 +963,7 @@
 				1F50601D2425F80F00C5FAE1 /* OptionsViewCollectionCell.swift in Sources */,
 				1F5A46EF24220CCC003FB3C3 /* InformationRouter.swift in Sources */,
 				1FF598F7242A740800A61B10 /* ResultDetailViewController.swift in Sources */,
+				1FEC8A3B2431F6CF005D04F0 /* Symptomes.swift in Sources */,
 				1F5A46FE24222C68003FB3C3 /* NavigationRouter.swift in Sources */,
 				1F5060132425F5E100C5FAE1 /* DiagnosticDetailProtocols.swift in Sources */,
 				1F5A47062422318E003FB3C3 /* WorldProtocols.swift in Sources */,
@@ -950,6 +973,7 @@
 				1F5060272426116C00C5FAE1 /* DiagnosticDetailRouter.swift in Sources */,
 				1F50600A2424DD0C00C5FAE1 /* UIAlertController+Extension.swift in Sources */,
 				1F5A471624234DB7003FB3C3 /* MainViewDataSource.swift in Sources */,
+				1F28F8AA242E34A80058701D /* NotificationService.swift in Sources */,
 				1F50600C2424E7C700C5FAE1 /* PresentationController.swift in Sources */,
 				1F5A472424236AE8003FB3C3 /* PreventionDataSource.swift in Sources */,
 				1F50601B2425F7AE00C5FAE1 /* DiagnosticDetailDataSource.swift in Sources */,

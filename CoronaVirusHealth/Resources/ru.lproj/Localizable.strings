@@ -7,7 +7,7 @@
 */
 
 "Please give us more information about you" = "Помогите нам собрать больше информации";
-"the probability that you are infected coronavirus" = "the probability that you are infected coronavirus";
+"the probability that you are infected coronavirus" = "шанс того что вы можете заразиться коронавирусом";
 "because of following reasons:" = "because of following reasons:";
 "Read more about symptoms of coronavirus" = "Read more about symptoms of coronavirus";
 "Share your result with your friend" = "Share your result with your friend";
@@ -62,12 +62,29 @@
 "Make sure you, and the people around you, follow good respiratory hygiene. This means covering your mouth and nose with your bent elbow or tissue when you cough or sneeze. Then dispose of the used tissue immediately." = "Make sure you, and the people around you, follow good respiratory hygiene. This means covering your mouth and nose with your bent elbow or tissue when you cough or sneeze. Then dispose of the used tissue immediately.";
 "Why? Droplets spread virus. By following good respiratory hygiene you protect the people around you from viruses such as cold, flu and COVID-19." = "Why? Droplets spread virus. By following good respiratory hygiene you protect the people around you from viruses such as cold, flu and COVID-19.";
 
-"Read more" = "Read more";
+"Read more" = "Подробнее";
 
-"We need your location to give information that relates to you" = "We need your location to give information that relates to you";
-"Enable location" = "Enable location";
+"We need your location to give information that relates to you" = "Нам необходимо ваше местоположение, чтобы защитить вас от угрозы заражения";
+"Enable location" = "Включить местоположение";
 "Privacy & rules" = "Privacy & rules";
 
-"Age" = "Age";
-"Turn on location service in settings" = "Turn on location service in settings";
-"Activate location" = "Activate location";
+"Age" = "Возраст";
+"Turn on location service in settings" = "Включите местоположение в настройках";
+"Activate location" = "Включить местоположение";
+
+"Fever" = "Лихорадка";
+"Dry cough" = "Сухой кашель";
+"Fatigue" = "Усталость";
+"Sputum production" = "Насморк";
+"Shortness of breath" = "Сбивчивое дыхание";
+"Muscle or joint pain" = "Боль в мышцах или суставах";
+"Sore throat" = "Боль в горле";
+"Headache" = "Головная боль";
+"Chills" = "Озноб";
+
+"No" = "Нет";
+"Yes" = "Да";
+
+"Indicate your symptoms" = "Укажите ваши симптомы";
+"Symptoms" = "Симптомы";
+"No symptoms" = "Симптовом нет";

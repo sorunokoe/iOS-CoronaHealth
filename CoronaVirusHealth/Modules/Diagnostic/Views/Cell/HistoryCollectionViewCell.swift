@@ -14,7 +14,7 @@ class HistoryCollectionViewCell: UICollectionViewCell{
     private var shadowView: UIView!
     private var frameView: UIView!
     var dateLabel: UILabel!
-    var stackView: UIStackView!
+    var symptomesLabel: UILabel!
     var injectedTitleLabel: UILabel!
     var injectedValueLabel: UILabel!
     
@@ -31,12 +31,23 @@ class HistoryCollectionViewCell: UICollectionViewCell{
         self.dateLabel.text = result.date
         self.injectedTitleLabel.text = NSLocalizedString("infected probality", comment: "")
         self.injectedValueLabel.text = "\(result.injectionChance)%"
-        result.data.forEach{
-            let view = ResultView()
-            view.set(result: $0)
-            stackView.addArrangedSubview(view)
+        if result.symptomes.isEmpty{
+            self.symptomesLabel.text = NSLocalizedString("No symptoms", comment: "")
+        }else{
+            var symptomes = "\(NSLocalizedString("Symptoms", comment: "")): "
+            for i in 0..<result.symptomes.count{
+                let symptom = NSLocalizedString(result.symptomes[i], comment: "")
+                if i == 0{
+                    symptomes += " \(symptom.lowercased())"
+                }else if i == result.data.count-1{
+                    symptomes += " \(symptom.lowercased())."
+                }else{
+                    symptomes += " \(symptom.lowercased())"
+                }
+            }
+            self.symptomesLabel.text = symptomes
         }
-        self.layoutIfNeeded()
+        
     }
     
     override func prepareForReuse() {
@@ -50,18 +61,19 @@ private extension HistoryCollectionViewCell{
         self.dateLabel.text = nil
         self.injectedTitleLabel.text = nil
         self.injectedValueLabel.text = nil
-        removeAllArrangedSubviews()
-        self.layoutIfNeeded()
+        self.symptomesLabel.text = nil
+//        removeAllArrangedSubviews()
     }
-    func removeAllArrangedSubviews() {
-        let removedSubviews = stackView.arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
-            self.stackView.removeArrangedSubview(subview)
-            return allSubviews + [subview]
-        }
-        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
-        removedSubviews.forEach({ $0.removeFromSuperview() })
-    }
+//    func removeAllArrangedSubviews() {
+//        let removedSubviews = stackView.arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+//            self.stackView.removeArrangedSubview(subview)
+//            return allSubviews + [subview]
+//        }
+//        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+//        removedSubviews.forEach({ $0.removeFromSuperview() })
+//    }
     func configureUI(){
+        self.translatesAutoresizingMaskIntoConstraints = false
         setViews()
         addViews()
         setConstraints()
@@ -82,9 +94,6 @@ private extension HistoryCollectionViewCell{
             let view = UIView()
             view.layer.cornerRadius = 20
             view.backgroundColor = .clear
-//            view.layer.borderColor = Colors.black.color.cgColor
-//            view.layer.borderWidth = 1.0
-            
             return view
         }()
         dateLabel = {
@@ -93,12 +102,12 @@ private extension HistoryCollectionViewCell{
             label.textColor = Colors.black.color
             return label
         }()
-        stackView = {
-            let stackView = UIStackView()
-            stackView.alignment = .center
-            stackView.axis = .horizontal
-            stackView.distribution = .fillEqually
-            return stackView
+        symptomesLabel = {
+            let label = UILabel()
+            label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            label.numberOfLines = 0
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
         }()
         injectedTitleLabel = {
             let label = UILabel()
@@ -120,7 +129,7 @@ private extension HistoryCollectionViewCell{
     func addViews(){
         self.addSubview(shadowView)
         self.addSubview(frameView)
-        [dateLabel, stackView, injectedTitleLabel, injectedValueLabel].forEach{
+        [dateLabel, symptomesLabel, injectedTitleLabel, injectedValueLabel].forEach{
             frameView.addSubview($0)
         }
     }
@@ -141,7 +150,7 @@ private extension HistoryCollectionViewCell{
             $0.left.equalToSuperview().offset(20)
             $0.right.equalToSuperview().offset(-20)
         }
-        stackView.snp.makeConstraints {
+        symptomesLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel.snp.bottom).offset(12)
             $0.left.equalToSuperview().offset(20)
             $0.right.equalTo(injectedTitleLabel.snp.left).offset(-20)

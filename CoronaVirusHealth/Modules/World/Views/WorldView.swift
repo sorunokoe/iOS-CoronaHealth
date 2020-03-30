@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import WebKit
 
 class WorldView: UIView{
     
+    var webView: WKWebView!
     var mapView: MKMapView!
     
     override init(frame: CGRect) {
@@ -30,16 +32,23 @@ private extension WorldView{
         setConstraints()
     }
     func setViews(){
+        webView = {
+            let view = WKWebView()
+            let url = URL(string: "https://www.trackcorona.live/map")
+            let request = URLRequest(url: url!)
+            view.load(request)
+            return view
+        }()
         mapView = {
             let view = MKMapView()
             return view
         }()
     }
     func addViews(){
-        self.addSubview(mapView)
+        self.addSubview(webView)
     }
     func setConstraints(){
-        mapView.snp.makeConstraints {
+        webView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }

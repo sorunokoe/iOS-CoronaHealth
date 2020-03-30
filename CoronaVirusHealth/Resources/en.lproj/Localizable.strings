@@ -8,7 +8,7 @@
 
 
 "Please give us more information about you" = "Please give us more information about you";
-"the probability that you are infected coronavirus" = "the probability that you are infected coronavirus";
+"the probability that you are infected coronavirus" = "chance that you might get infected coronavirus";
 "because of following reasons:" = "because of following reasons:";
 "Read more about symptoms of coronavirus" = "Read more about symptoms of coronavirus";
 "Share your result with your friend" = "Share your result with your friend";
@@ -72,3 +72,22 @@
 "Age" = "Age";
 "Turn on location service in settings" = "Turn on location service in settings";
 "Activate location" = "Activate location";
+
+
+"Fever" = "Fever";
+"Dry cough" = "Dry cough";
+"Fatigue" = "Fatigue";
+"Sputum production" = "Sputum production";
+"Shortness of breath" = "Shortness of breath";
+"Muscle or joint pain" = "Muscle or joint pain";
+"Sore throat" = "Sore throat";
+"Headache" = "Headache";
+"Chills" = "Chills";
+
+"No" = "No";
+"Yes" = "Yes";
+
+
+"Indicate your symptoms" = "Indicate your symptoms";
+"Symptoms" = "Symptoms";
+"No symptoms" = "No symptoms";

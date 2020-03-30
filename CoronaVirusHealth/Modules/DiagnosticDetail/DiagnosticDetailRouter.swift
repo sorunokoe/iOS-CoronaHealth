@@ -18,6 +18,9 @@ class DiagnosticDetailRouter{
         container.register(CacheServer.self) { (_) in
             CacheServer()
         }
+        container.register(DiagnosticServiceProtocol.self) { (_) in
+            DiagnosticService()
+        }
         container.register(DiagnosticDetailDataSource.self) { (_) in
             DiagnosticDetailDataSource()
         }
@@ -26,7 +29,8 @@ class DiagnosticDetailRouter{
         }
         container.register(DiagnosticDetailViewControllerProtocol.self) { (r) in
             DiagnosticDetailViewController(contentView: r.resolve(DiagnosticDetailView.self)!,
-                                           storageService: r.resolve(CacheServer.self)!)
+                                           storageService: r.resolve(CacheServer.self)!,
+                                           diagnosticService: r.resolve(DiagnosticServiceProtocol.self)!)
         }
         let vc = container.resolve(DiagnosticDetailViewControllerProtocol.self) as! UIViewController
         return vc

@@ -35,7 +35,7 @@ class OptionsViewCollectionCell: UICollectionViewCell{
         self.question = question
         self.indexPath = indexPath
         self.delegate = delegate
-        self.titlLabel.text = question.title
+        self.titlLabel.text = NSLocalizedString(question.title, comment: "")
         guard let options = question.options else { return }
         for i in 0..<options.count{
             let view = OptionView()
@@ -47,8 +47,8 @@ class OptionsViewCollectionCell: UICollectionViewCell{
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         clear()
+        super.prepareForReuse()
     }
     
 }

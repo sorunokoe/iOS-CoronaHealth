@@ -49,11 +49,9 @@ private extension ResultDetailViewController{
         self.contentView.readMoreButton.addTarget(self, action: #selector(readMore), for: .touchUpInside)
     }
     func getResult(){
-        let result = TotalResultModel(chance: 34, symptoms: [
-            "- you don’t have cough",
-            "- you don’t have headache",
-            "- you have healthy temperature"
-        ])
+        let chance = self.result.injectionChance
+        let symptoms = self.result.symptomes
+        let result = TotalResultModel(chance: chance, symptoms: symptoms)
         contentView.chanceLabel.text = "\(result.chance)%"
         contentView.set(symptomes: result.symptoms)
     }
@@ -61,7 +59,7 @@ private extension ResultDetailViewController{
     
     // MARK:  - Handlers
     @objc func close(){
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     @objc func share(){
         

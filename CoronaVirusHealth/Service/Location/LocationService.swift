@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import NotificationCenter
 
 protocol LocationServiceDelegate{
     func locationAuthorizeChanged()
@@ -50,6 +51,16 @@ class LocationService: NSObject, LocationServiceProtocol{
 extension LocationService: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print(locations)
+        
+//        let trigger = UNLocationNotificationTrigger(triggerWithRegion: region, repeats:false)
+//        
+//        CLCircularRegion(center: <#T##CLLocationCoordinate2D#>, radius: <#T##CLLocationDistance#>, identifier: <#T##String#>)
+//        let region = CLRegion()
+//        region.notifyOnEntry = true
+//        region.notifyOnExit = true
+//        
+//        UNLocationNotificationTrigger(region: <#T##CLRegion#>, repeats: <#T##Bool#>)
+        
         manager.stopUpdatingHeading()
     }
     func locationManager(_ manager: CLLocationManager, didVisit visit: CLVisit) {

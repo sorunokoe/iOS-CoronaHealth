@@ -14,7 +14,7 @@ class RealmConfiguration{
     
     func configure(){
         let config = Realm.Configuration(
-            schemaVersion: 5,
+            schemaVersion: 6,
             migrationBlock: { _, _ in
                 
             })

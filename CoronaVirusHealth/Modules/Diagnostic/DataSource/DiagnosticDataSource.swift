@@ -44,50 +44,6 @@ class DiagnosticViewDataSource: NSObject{
     
     var actionDelegate: UICollectionViewDelegate?
     
-    func getHistoryResults(){
-//        let resultItem = DiagnosticResultModel(date: "18.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 23)
-//        let resultItem2 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 12)
-//        let resultItem3 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 13)
-//        let resultItem4 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 15)
-//        let resultItem5 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 16)
-//        let resultItem6 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 12)
-//        let resultItem7 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 12)
-//        let resultItem8 = DiagnosticResultModel(date: "17.03.2020 at 14:23", data: [
-//            ResultModel(title: "temperature", value: "36.6*"),
-//            ResultModel(title: "cough", value: "No"),
-//            ResultModel(title: "headache", value: "No")
-//        ], injectionChance: 12)
-//        results = [resultItem, resultItem2, resultItem3, resultItem4, resultItem5, resultItem6, resultItem7, resultItem8]
-    }
-    
 }
 
 extension DiagnosticViewDataSource: UICollectionViewDataSource{

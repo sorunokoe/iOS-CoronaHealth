@@ -42,7 +42,8 @@ class DiagnosticRouter: DiagnosticRouterProtocol{
         switch to{
         case .diagnosticDetail:
             let vc = DiagnosticDetailRouter.generate()
-            self.viewController?.navigationController?.pushViewController(vc, animated: true)
+            let nc = UINavigationController(rootViewController: vc)
+            self.viewController?.present(nc, animated: true, completion: nil)
         }
     }
     

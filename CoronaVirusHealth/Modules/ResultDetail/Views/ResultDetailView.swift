@@ -33,8 +33,12 @@ class ResultDetailView: UIView{
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
             label.textColor = Colors.black.color
-            label.text = symptome
+            label.text = "- \(NSLocalizedString(symptome, comment: ""))"
             reasonStackView.addArrangedSubview(label)
+        }
+        if symptomes.isEmpty{
+            reasonTitle.isHidden = true
+            reasonStackView.isHidden = true
         }
     }
     
@@ -55,6 +59,7 @@ private extension ResultDetailView{
             label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
             label.textColor = Colors.black.color
             label.numberOfLines = 0
+            label.textAlignment = .center
             label.textAlignment = .center
             return label
         }()
@@ -115,7 +120,8 @@ private extension ResultDetailView{
     func setConstraints(){
         titlelabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(160)
-            $0.centerX.equalToSuperview()
+            $0.left.equalToSuperview().offset(20)
+            $0.right.equalToSuperview().offset(-20)
         }
         chanceLabel.snp.makeConstraints {
             $0.top.equalTo(titlelabel.snp.bottom).offset(45)

@@ -12,10 +12,12 @@ class DiagnosticDetailViewController: UIViewController, DiagnosticDetailViewCont
     
     var storageService: CacheServer
     var contentView: DiagnosticDetailView
+    var diagnosticService: DiagnosticServiceProtocol
     
-    init(contentView: DiagnosticDetailView, storageService: CacheServer) {
+    init(contentView: DiagnosticDetailView, storageService: CacheServer, diagnosticService: DiagnosticServiceProtocol) {
         self.storageService = storageService
         self.contentView = contentView
+        self.diagnosticService = diagnosticService
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
@@ -41,18 +43,25 @@ extension DiagnosticDetailViewController: ButtonViewCoollectionCellDelegate{
     func nextTouched() {
         let result = saveToStorage()
         let vc = ResultDetailRouter.generate(with: result)
+        NotificationCenter.default.post(name: NSNotification.Name("updateHistory"), object: nil)
         self.navigationController?.pushViewController(vc, animated: true)
-        self.navigationController?.viewControllers.remove(at: 1)
+        self.navigationController?.viewControllers.remove(at: 0)
     }
 }
 private extension DiagnosticDetailViewController{
     func saveToStorage() -> DiagnosticResultModel{
         var data: [ResultModel] = []
+        var symptomes: [DiagnosticSymptomes.Symptomes] = []
         self.contentView.dataSource.questions.forEach{
             let result = ResultModel(title: $0.title, value: $0.value)
+            if let symptome = $0.symptome, $0.value == "Yes"{
+                symptomes.append(symptome)
+            }
             data.append(result)
         }
-        let result = DiagnosticResultModel(date: "".convert(date: Date()), data: data, injectionChance: 32)
+        let injectionChance = diagnosticService.getChanceOfInjection(symptomes: symptomes)
+        let symptomesString = symptomes.map { $0.title }
+        let result = DiagnosticResultModel(date: "".convert(date: Date()), data: data, symptomes: symptomesString, injectionChance: injectionChance)
         storageService.set(result.object(), key: .totalResult)
         return result
     }

@@ -14,6 +14,12 @@ class DiagnosticViewController: UIViewController, DiagnosticViewControllerProtoc
     var router: DiagnosticRouterProtocol
     var contentView: DiagnosticView!
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl()
+        control.addTarget(self, action: #selector(updateHistory(_:)), for: .valueChanged)
+        return control
+    }()
+    
     init(contentView: DiagnosticView, router: DiagnosticRouterProtocol, database: CacheServer) {
         self.contentView = contentView
         self.router = router
@@ -30,15 +36,27 @@ class DiagnosticViewController: UIViewController, DiagnosticViewControllerProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contentView.dataSource.actionDelegate = self
-        let historyResults = database.get(.totalResult)
-        self.contentView.dataSource.results = historyResults
-        self.contentView.collectionView.reloadData()
+        getHistory()
+        contentView.collectionView.refreshControl = refreshControl
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateHistory(_:)), name: NSNotification.Name("updateHistory"), object: nil)
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.view.backgroundColor = Colors.background.color
+        
     }
-    
+    func getHistory(){
+        let historyResults = database.get(.totalResult)
+        self.contentView.dataSource.results = historyResults
+        self.contentView.collectionView.reloadData()
+    }
+}
+private extension DiagnosticViewController{
+    @objc func updateHistory(_ sender: Any){
+        getHistory()
+    }
 }
 extension DiagnosticViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

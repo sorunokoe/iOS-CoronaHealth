@@ -43,6 +43,7 @@ private extension DiagnosticView{
             layout.headerReferenceSize = CGSize(width: 120, height: 50)
             layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 15, right: 0)
             let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collection.translatesAutoresizingMaskIntoConstraints = false
             collection.backgroundColor = .clear
             collection.register(DiagnosticActionCellCollection.self, forCellWithReuseIdentifier: Identifier.diagnosticCellId.rawValue)
             collection.register(HistoryCollectionViewCell.self, forCellWithReuseIdentifier: Identifier.hisotryCellId.rawValue)

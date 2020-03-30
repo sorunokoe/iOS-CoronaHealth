@@ -20,22 +20,29 @@ class DiagnosticDetailDataSource: NSObject{
     }
     
     func getQuestions(){
-        let q = InformationModel(type: .field, title: NSLocalizedString("Temperature", comment: ""), value: "", list: nil, fieldType: .number, options: nil)
-        let q1 = InformationModel(type: .options, title: NSLocalizedString("How dry is your cough?", comment: ""), value: "", list: nil, fieldType: .number, options: [
-            OptionModel(title: NSLocalizedString("No cough", comment: ""), value: false),
-            OptionModel(title: NSLocalizedString("Normal", comment: ""), value: false),
-            OptionModel(title: NSLocalizedString("Dry", comment: ""), value: false)
-        ])
-        let q2 = InformationModel(type: .options, title: NSLocalizedString("Do you have headache?", comment: ""), value: "", list: nil, fieldType: .number, options: [
-            OptionModel(title: NSLocalizedString("No headache", comment: ""), value: false),
-            OptionModel(title: NSLocalizedString("Little bit", comment: ""), value: false),
-            OptionModel(title: NSLocalizedString("strong tension headaches", comment: ""), value: false)
-        ])
-        questions = [q, q1, q2]
+        var questions: [InformationModel] = []
+        DiagnosticSymptomes.allSymptomes.forEach{
+            let q = InformationModel(type: .options, title: $0.title, value: "", list: nil, fieldType: .number, symptome: $0, options: [
+                OptionModel(title: "No", value: false),
+                OptionModel(title: "Yes", value: false)
+            ])
+            questions.append(q)
+        }
+        self.questions = questions
     }
     
 }
 extension DiagnosticDetailDataSource: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: DiagnosticDetailView.Identifier.headerID.rawValue, for: indexPath) as! Header
+        let section = sections[indexPath.section]
+        if section == .questions{
+            headerView.set(title: NSLocalizedString("Indicate your symptoms", comment: ""), font: UIFont.systemFont(ofSize: 18, weight: .medium))
+            return headerView
+        }
+        headerView.frame = .zero
+        return headerView
+    }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
     }
@@ -75,6 +82,10 @@ extension DiagnosticDetailDataSource: FieldViewCollectionCellDelegate{
     func set(value: String?, index: Int, optionIndex: Int?, option: OptionModel?) {
         guard let value = value else { return }
         self.questions[index].value = value
+        guard let options = self.questions[index].options else { return }
+        for i in 0..<options.count{
+            self.questions[index].options?[i].value = false
+        }
         guard let optionIndex = optionIndex, let option = option else { return }
         self.questions[index].options?[optionIndex] = option
     }

@@ -19,6 +19,7 @@ class TabRouter{
     
     func configure(window: UIWindow){
         self.window = window
+        self.window.makeKeyAndVisible()
         navigate(to: .entrance)
     }
     

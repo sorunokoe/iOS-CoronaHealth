@@ -37,11 +37,13 @@ class ResultModelObject: Object{
 struct DiagnosticResultModel{
     var date: String
     var data: [ResultModel]
+    var symptomes: [String]
     var injectionChance: Int
     
-    init(date: String, data: [ResultModel], injectionChance: Int){
+    init(date: String, data: [ResultModel], symptomes: [String], injectionChance: Int){
         self.date = date
         self.data = data
+        self.symptomes = symptomes
         self.injectionChance = injectionChance
     }
     
@@ -52,6 +54,11 @@ struct DiagnosticResultModel{
             data.append(ResultModel(object: $0))
         }
         self.data = data
+        var symptomes: [String] = []
+        object.symptomes.forEach{
+            symptomes.append($0)
+        }
+        self.symptomes = symptomes
         self.injectionChance = object.injectionChance
     }
     
@@ -63,6 +70,11 @@ struct DiagnosticResultModel{
             data.append($0.object())
         }
         object.data = data
+        let symptomes = List<String>()
+        self.symptomes.forEach{
+            symptomes.append($0)
+        }
+        object.symptomes = symptomes
         object.injectionChance = injectionChance
         return object
     }
@@ -70,5 +82,6 @@ struct DiagnosticResultModel{
 class DiagnosticResultModelObject: Object {
     @objc dynamic var date: String = ""
     var data = List<ResultModelObject>()
+    var symptomes = List<String>()
     @objc dynamic var injectionChance: Int = 0
 }

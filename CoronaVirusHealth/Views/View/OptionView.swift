@@ -28,7 +28,7 @@ class OptionView: UIView{
     func set(option: OptionModel, index: Int){
         self.option = option
         self.index = index
-        titleLabel.text = option.title
+        titleLabel.text = NSLocalizedString(option.title, comment: "")
         set(value: option.value)
     }
     

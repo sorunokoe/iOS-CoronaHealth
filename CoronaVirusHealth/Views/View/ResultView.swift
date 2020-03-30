@@ -10,7 +10,7 @@ import UIKit
 
 class ResultView: UIView{
     
-    var valueLabel: UILabel!
+//    var valueLabel: UILabel!
     var titleLabel: UILabel!
     
     override init(frame: CGRect) {
@@ -19,7 +19,7 @@ class ResultView: UIView{
     }
     
     func set(result: ResultModel){
-        valueLabel.text = result.value
+//        valueLabel.text = result.value
         titleLabel.text = result.title
     }
     
@@ -35,14 +35,16 @@ private extension ResultView{
         setConstraints()
     }
     func setViews(){
-        valueLabel = {
-            let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-            label.textColor = Colors.black.color
-            label.textAlignment = .center
-            label.numberOfLines = 1
-            return label
-        }()
+//        valueLabel = {
+//            let label = UILabel()
+//            label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+//            label.textColor = Colors.black.color
+//            label.textAlignment = .center
+//            label.numberOfLines = 1
+//            label.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+//
+//            return label
+//        }()
         titleLabel = {
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
@@ -53,17 +55,17 @@ private extension ResultView{
         }()
     }
     func addViews(){
-        [valueLabel, titleLabel].forEach{
+        [titleLabel].forEach{
             self.addSubview($0)
         }
     }
     func setConstraints(){
-        valueLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.centerX.equalTo(titleLabel.snp.centerX)
-        }
+//        valueLabel.snp.makeConstraints {
+//            $0.top.equalToSuperview()
+//            $0.centerX.equalTo(titleLabel.snp.centerX)
+//        }
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(valueLabel.snp.bottom).offset(2)
+            $0.top.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.left.equalToSuperview()
             $0.right.equalToSuperview()

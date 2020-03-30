@@ -12,7 +12,7 @@ extension String{
     
     func convert(date: Date) -> String{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMMM at HH:mm"
+        dateFormatter.dateFormat = "dd MMMM HH:mm:ss"
         return dateFormatter.string(from: date)
     }
     
